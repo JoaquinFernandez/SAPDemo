@@ -5,6 +5,11 @@ client.onConnectionLost = function (responseObject) {
   console.log("connection lost: " + responseObject.errorMessage);
 };
 client.onMessageArrived = function (message) {
+  var payload = JSON.parse(message.payloadString)
+  $("#ambientTemp").text("Temperature: " + parseFloat(payload["messages"][0]["ambientTemp"]).toFixed(2) + "°C")
+  $("#pressure").text("Pressure: " + parseFloat(payload["messages"][0]["pressure"]).toFixed(2) + " bars")
+  $("#altitude").text("Altitude: " + parseFloat(payload["messages"][0]["altitude"]).toFixed(2) + " meters")
+  $("#light").text("Light: " + parseFloat(payload["messages"][0]["light"]).toFixed(2) + " lumens")
   console.log(message.destinationName, ' -- ', message.payloadString);
 };
 var options = {
