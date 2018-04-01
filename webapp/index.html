@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+
+		<title>SAP Truck tracking</title>
+    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    
+    
+    <script src="./controller/truck.js"></script>
+    <script src="./model/truck.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript" language="JavaScript">
+      function set_body_height() { // set body height = window height
+        $('body').height($(window).height());
+      }
+      $(document).ready(function() {
+        $(window).bind('resize', set_body_height);
+        set_body_height();
+      });
+		</script>
+	</head>
+
+	<body id="content">
+    <div class="device-div">
+      <div class="truck-head-div">
+        <img class="truck" src="./resources/truck-head.png"></img>
+        <div class="measure-div">
+          <div>Fuel: 10.5L</div>
+          <a href="http://maps.google.com/maps?q=40.44677,-3.65641+(My+Point)&ll=40.44677,-3.65641&z=16">Position</a>
+        </div>
+      </div>
+      <div class="truck-bottom-div">
+        <img class="truck" src="./resources/truck-bottom.png"></img>
+        <div class="measure-div">
+          <div id="ambientTemp">text1</div>
+          <div id="pressure">text1</div>
+          <div id="altitude">text1</div>
+          <div id="light">text1</div>
+        </div>
+      </div>
+    </div>
+	</body>
+
+</html>
