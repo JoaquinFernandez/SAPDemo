@@ -53,7 +53,7 @@ client.onConnectionLost = function (responseObject) {
 client.onMessageArrived = function (message) {
   var payload = JSON.parse(message.payloadString)["messages"][0]
   calculateLastStop(payload)
-  $("#deviceID").text("Device ID: " + payload["sensor"])
+  $("#deviceID").text("ID: " + payload["sensor"])
   $("#ambientTemp").text("Temperature: " + parseFloat(payload["ambientTemp"]).toFixed(2) + "°C")
   $("#pressure").text("Pressure: " + parseFloat(payload["pressure"]).toFixed(2) + " mbar")
   $("#altitude").text("Altitude: " + parseFloat(payload["altitude"]).toFixed(2) + " meter")
