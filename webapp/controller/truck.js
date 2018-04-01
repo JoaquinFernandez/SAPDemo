@@ -1,5 +1,5 @@
-var wsbroker = "test.mosquitto.org";  //mqtt websocket enabled broker
-var wsport = 8080 // port for above
+var wsbroker = "iot.eclipse.org";  //mqtt websocket enabled broker
+var wsport = 443 // port for above
 var client = new Paho.MQTT.Client(wsbroker, wsport, "myclientid_" + parseInt(Math.random() * 100, 10));
 client.onConnectionLost = function (responseObject) {
   console.log("connection lost: " + responseObject.errorMessage);
@@ -14,6 +14,7 @@ client.onMessageArrived = function (message) {
 };
 var options = {
   timeout: 3,
+  useSSL: true,
   onSuccess: function () {
     console.log("mqtt connected");
     // Connection succeeded; subscribe to our topic, you can add multile lines of these
